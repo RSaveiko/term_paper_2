@@ -18,12 +18,12 @@ def main_page():
     return render_template("index.html", posts=posts_data, bookmarks_quantity=bookmarks_quantity)
 
 
-@app.route("/post/<postid>")
+@app.route("/post/<int:postid>")
 def post_page(postid):
     posts_data = functions.open_json("data/data.json")
     comments_data = functions.open_json("data/comments.json")
 
-    postid = int(postid)
+    
 
     output_post = functions.get_post(posts_data, postid)
     tags = functions.get_tags(output_post)
