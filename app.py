@@ -46,7 +46,7 @@ def search_page():
 
     s = request.args.get("s")
     if s is None:
-        return "Введите параметр для поиска"
+        return "400"
     s = s.lower()
 
     match = []
@@ -58,7 +58,7 @@ def search_page():
     if len(match):
         quantity = len(match)
         return render_template("search.html", posts=posts, s=s, quantity=quantity)
-    return "Ничего не найдено"
+    return "404"
 
 
 @app.route("/users/<username>")
