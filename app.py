@@ -104,7 +104,7 @@ def add_bookmark(postid):
             bookmarked_posts.append(post)
 
     functions.write_json("data/bookmarks.json", bookmarked_posts)
-    return redirect("/", code=302)
+    return redirect("/", code=201)
 
 
 @app.route("/bookmarks/remove/<postid>")
